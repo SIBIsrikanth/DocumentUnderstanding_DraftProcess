@@ -1,0 +1,7 @@
+{
+"documentId": "<docID>",
+"prompts": null,
+"configuration": {
+"autoValidationConfidenceThreshold": 70
+}
+}
