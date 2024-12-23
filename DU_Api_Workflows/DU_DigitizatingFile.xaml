@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1481,1909</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1202,1989</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DU_GetAccessToken_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -89,7 +89,7 @@
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DU_DigitizatingFile" sap:VirtualizedContainerService.HintSize="1491,1844" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DU_DigitizatingFile" sap:VirtualizedContainerService.HintSize="1007,1844" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="retry" />
       <Variable x:TypeArguments="x:Boolean" Name="isFailed" />
@@ -103,13 +103,13 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DU_Api_Workflows\DU_GetAccessToken.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1429,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DU_Api_Workflows\DU_GetAccessToken.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DU_Api_Workflows\DU_GetAccessToken.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="945,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DU_Api_Workflows\DU_GetAccessToken.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_TokenAPI">https://cloud.uipath.com/identity_/connect/token?scope=Du.Digitization</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_Token">[strToken]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="1429,52" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="945,52" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[retry]</OutArgument>
       </Assign.To>
@@ -123,7 +123,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isFailed = True and retry &lt; 5]" DisplayName="Try To DU_DigitizatingFile" sap:VirtualizedContainerService.HintSize="1429,930" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isFailed = True and retry &lt; 5]" DisplayName="Try To DU_DigitizatingFile" sap:VirtualizedContainerService.HintSize="945,930" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
         <Sequence DisplayName="Call DU_DigitizatingFile" sap:VirtualizedContainerService.HintSize="596,764" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -164,6 +164,9 @@
                   <ui:HttpClient.Headers>
                     <InArgument x:TypeArguments="x:String" x:Key="x-uipath-page-range">
                       <Literal x:TypeArguments="x:String">^-$</Literal>
+                    </InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="Content-Type">
+                      <Literal x:TypeArguments="x:String">multipart/form-data</Literal>
                     </InArgument>
                   </ui:HttpClient.Headers>
                   <ui:HttpClient.Parameters>
@@ -216,7 +219,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleDoWhile>
-    <If Condition="[statusCode=200 or statusCode=201 or statusCode=202 or statusCode=204]" DisplayName="If status code " sap:VirtualizedContainerService.HintSize="1429,296" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[statusCode=200 or statusCode=201 or statusCode=202 or statusCode=204]" DisplayName="If status code " sap:VirtualizedContainerService.HintSize="945,296" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="450,103" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
@@ -237,8 +240,8 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="1429,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[responseJson]" />
-    <Assign sap:VirtualizedContainerService.HintSize="1429,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <ui:DeserializeJson x:TypeArguments="njl:JObject" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="945,60" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_1" JsonObject="[jsonObj]" JsonString="[responseJson]" />
+    <Assign sap:VirtualizedContainerService.HintSize="945,82" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[out_DocumentID]</OutArgument>
       </Assign.To>
