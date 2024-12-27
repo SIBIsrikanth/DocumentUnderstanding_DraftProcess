@@ -9,7 +9,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1458,2642</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>2249,1726</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DU_GetAccessToken_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -92,7 +92,7 @@
       <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DU_ExtractingResults_Sync" sap:VirtualizedContainerService.HintSize="1468,2497" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DU_ExtractingResults_Sync" sap:VirtualizedContainerService.HintSize="2259,1661" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="retry" />
       <Variable x:TypeArguments="x:Boolean" Name="isFailed" />
@@ -107,30 +107,42 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DU_Api_Workflows\DU_GetAccessToken.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1406,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DU_Api_Workflows\DU_GetAccessToken.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DU_Api_Workflows\DU_GetAccessToken.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="2197,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DU_Api_Workflows\DU_GetAccessToken.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_TokenAPI">https://cloud.uipath.com/identity_/connect/token?scope=Du.Digitization</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_Token">[strToken]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:ReadTextFile File="{x:Null}" Content="[strBody]" DisplayName="Read Text File" FileName="DU_Api_Workflows\JsonBody.txt" sap:VirtualizedContainerService.HintSize="1406,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-    <Assign sap:VirtualizedContainerService.HintSize="1406,82" sap2010:WorkflowViewState.IdRef="Assign_5">
+    <ui:ReadTextFile File="{x:Null}" Content="[strBody]" DisplayName="Read Text File" FileName="DU_Api_Workflows\JsonBody.txt" sap:VirtualizedContainerService.HintSize="2197,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+    <Assign sap:VirtualizedContainerService.HintSize="2197,52" sap2010:WorkflowViewState.IdRef="Assign_5">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[strBody]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:String">[strBody.Replace("&lt;docID&gt;",in_DocumentID)]</InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="1406,82" sap2010:WorkflowViewState.IdRef="Assign_7">
+    <Assign sap:VirtualizedContainerService.HintSize="2197,52" sap2010:WorkflowViewState.IdRef="Assign_7">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Boolean">[out_Async]</OutArgument>
       </Assign.To>
       <Assign.Value>
         <InArgument x:TypeArguments="x:Boolean">False</InArgument>
       </Assign.Value>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="1406,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="2197,52" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[retry]</OutArgument>
       </Assign.To>
@@ -139,12 +151,12 @@
       </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </Assign>
-    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isFailed = True and retry &lt; 5]" DisplayName="Try To DU_ExtractingResults_Sync" sap:VirtualizedContainerService.HintSize="1406,930" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+    <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[isFailed = True and retry &lt; 5]" DisplayName="Try To DU_ExtractingResults_Sync" sap:VirtualizedContainerService.HintSize="2197,52" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
       <ui:InterruptibleDoWhile.Body>
         <Sequence DisplayName="Call DU_ExtractingResults_Sync" sap:VirtualizedContainerService.HintSize="596,764" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
@@ -231,39 +243,88 @@
       </ui:InterruptibleDoWhile.Body>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InterruptibleDoWhile>
-    <If Condition="[statusCode=200 or statusCode=201 or statusCode=202 or statusCode=204]" sap:VirtualizedContainerService.HintSize="1406,777" sap2010:WorkflowViewState.IdRef="If_1">
+    <If Condition="[statusCode=200 or statusCode=201 or statusCode=202 or statusCode=204]" sap:VirtualizedContainerService.HintSize="2197,909" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="496,193" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="1099,749" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
-            <Assign.To>
-              <OutArgument x:TypeArguments="x:String">[out_ResponseJson]</OutArgument>
-            </Assign.To>
-            <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[responseJson]</InArgument>
-            </Assign.Value>
-          </Assign>
+          <If Condition="[responseJson.Contains(&quot;operationId&quot;)]" sap:VirtualizedContainerService.HintSize="1037,638" sap2010:WorkflowViewState.IdRef="If_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence sap:VirtualizedContainerService.HintSize="496,478" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_9">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:Boolean">[out_Async]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:Boolean">True</InArgument>
+                  </Assign.Value>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Calling the Async flow&quot;]" />
+                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DU_ExtractingResults_ASync.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DU_Api_Workflows\DU_ExtractingResults_ASync.xaml">
+                  <ui:InvokeWorkflowFile.Arguments>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_DocumentID">[in_DocumentID]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ExtractingResults_ASync_Api">[in_ExtractingResults_ASync_Api]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_ResponseJson">[out_ResponseJson]</OutArgument>
+                  </ui:InvokeWorkflowFile.Arguments>
+                </ui:InvokeWorkflowFile>
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence sap:VirtualizedContainerService.HintSize="496,325" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Assign sap:VirtualizedContainerService.HintSize="434,82" sap2010:WorkflowViewState.IdRef="Assign_8">
+                  <Assign.To>
+                    <OutArgument x:TypeArguments="x:String">[out_ResponseJson]</OutArgument>
+                  </Assign.To>
+                  <Assign.Value>
+                    <InArgument x:TypeArguments="x:String">[responseJson]</InArgument>
+                  </Assign.Value>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Extraction results with sync completed&quot;]" />
+              </Sequence>
+            </If.Else>
+          </If>
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="865,617" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="1053,749" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If Condition="[statusCode=400 and responseJson.Contains(&quot;Please use the asynchronous APIs&quot;)]" sap:VirtualizedContainerService.HintSize="803,506" sap2010:WorkflowViewState.IdRef="If_2">
+          <If Condition="[statusCode=400 and responseJson.Contains(&quot;Please use the asynchronous APIs&quot;)]" sap:VirtualizedContainerService.HintSize="991,638" sap2010:WorkflowViewState.IdRef="If_2">
             <If.Then>
-              <Sequence sap:VirtualizedContainerService.HintSize="496,346" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence sap:VirtualizedContainerService.HintSize="496,478" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -277,29 +338,24 @@
                     <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                   </Assign.Value>
                 </Assign>
+                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,92" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Calling the Async flow&quot;]" />
                 <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DU_ExtractingResults_ASync.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="434,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DU_Api_Workflows\DU_ExtractingResults_ASync.xaml">
                   <ui:InvokeWorkflowFile.Arguments>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_DocumentID">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_DocumentID" />
-                    </InArgument>
-                    <InArgument x:TypeArguments="x:String" x:Key="in_ExtractingResults_ASync_Api">
-                      <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_ExtractingResults_ASync_Api" />
-                    </InArgument>
-                    <OutArgument x:TypeArguments="x:String" x:Key="out_ResponseJson">
-                      <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="out_ResponseJson" />
-                    </OutArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_DocumentID">[in_DocumentID]</InArgument>
+                    <InArgument x:TypeArguments="x:String" x:Key="in_ExtractingResults_ASync_Api">[in_ExtractingResults_ASync_Api]</InArgument>
+                    <OutArgument x:TypeArguments="x:String" x:Key="out_ResponseJson">[out_ResponseJson]</OutArgument>
                   </ui:InvokeWorkflowFile.Arguments>
                 </ui:InvokeWorkflowFile>
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence sap:VirtualizedContainerService.HintSize="262,136" sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence sap:VirtualizedContainerService.HintSize="450,136" sap2010:WorkflowViewState.IdRef="Sequence_7">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <Throw DisplayName="Throw - SE" Exception="[new System.Exception(&quot;Bot failed to call extracting results for Sync api :  &quot;+in_ExtractingResults_Sync_Api+vbNewLine+responseJson)]" sap:VirtualizedContainerService.HintSize="200,25" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                <Throw DisplayName="Throw - SE" Exception="[new System.Exception(&quot;Bot failed to call extracting results for Sync api :  &quot;+in_ExtractingResults_Sync_Api+vbNewLine+responseJson)]" sap:VirtualizedContainerService.HintSize="388,25" sap2010:WorkflowViewState.IdRef="Throw_1" />
               </Sequence>
             </If.Else>
           </If>
