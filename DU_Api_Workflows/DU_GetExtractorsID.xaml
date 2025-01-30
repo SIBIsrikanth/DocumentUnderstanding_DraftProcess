@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DU_GetAccessToken" this:DU_GetAccessToken.in_ExtractorsDiscoveryUrl="https://cloud.uipath.com:443/98349e52-db81-4fda-b269-513a0130ea26/37b57714-7e31-488d-afd9-ef3880ad522c/du_/api/framework/projects/028e043e-ac1d-ef11-86d2-0022488a55b2/extractors?api-version=1.0" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DU_GetAccessToken" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_ExtractorsDiscoveryUrl" Type="InArgument(x:String)" />
     <x:Property Name="out_Extractor_SyncUrl" Type="OutArgument(x:String)" />
@@ -7,7 +7,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1701,2223</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1701,2182</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DU_GetAccessToken_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -86,13 +86,12 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.Word.Activities.Design</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
       <AssemblyReference>System.Collections.Immutable</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DU_GetExtractorsID" sap:VirtualizedContainerService.HintSize="1711,2118" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DU_GetExtractorsID" sap:VirtualizedContainerService.HintSize="1711,2117" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="retry" />
       <Variable x:TypeArguments="x:Boolean" Name="isFailed" />
@@ -109,15 +108,11 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DU_Api_Workflows\DU_GetAccessToken.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="1649,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DU_Api_Workflows\DU_GetAccessToken.xaml">
       <ui:InvokeWorkflowFile.Arguments>
-        <InArgument x:TypeArguments="x:String" x:Key="in_TokenAPI">
-          <Literal x:TypeArguments="x:String">https://cloud.uipath.com/identity_/connect/token?scope=Du.Digitization</Literal>
-        </InArgument>
-        <OutArgument x:TypeArguments="x:String" x:Key="out_Token">
-          <mva:VisualBasicReference x:TypeArguments="x:String" ExpressionText="strToken" />
-        </OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_TokenAPI">https://cloud.uipath.com/identity_/connect/token?scope=Du.Digitization</InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_Token">[strToken]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <Assign sap:VirtualizedContainerService.HintSize="1649,82" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="1649,81" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[retry]</OutArgument>
       </Assign.To>
